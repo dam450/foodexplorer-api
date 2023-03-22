@@ -1,0 +1,19 @@
+{
+  "name": "foodexplorer-api",
+  "version": "1.0.0",
+  "description": "Rest API for FoodExplorer Application",
+  "main": "./src/server.js",
+  "scripts": {
+    "start": "node ./src/server.js",
+    "dev": "nodemon ./src/server.js"
+  },
+  "author": "Dam450 <dam450@gmail.com>",
+  "license": "MIT",
+  "dependencies": {
+    "dotenv": "^16.0.3",
+    "express": "^4.18.2"
+  },
+  "devDependencies": {
+    "nodemon": "^2.0.21"
+  }
+}
