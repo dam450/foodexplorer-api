@@ -1,13 +1,14 @@
 require('dotenv').config();
 
 const express = require('express');
-const PORT = process.env.PORT || 3000;
-const app = express();
+const routes = require('./routes');
 
-app.get('/', function (req, res) {
-  res.send('hello world');
-});
+const PORT = process.env.PORT || 3000;
+
+const app = express();
+app.use(express.json());
+app.use(routes);
 
 app.listen(PORT, function () {
-  console.log(`[Server] listening on port ${PORT}`);
+  console.log(`[Server] listening on port ${PORT} \thttp://localhost:${PORT}`);
 });
