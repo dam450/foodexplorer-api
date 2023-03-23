@@ -1,0 +1,101 @@
+{
+  "_type": "export",
+  "__export_format": 4,
+  "__export_date": "2023-03-22T18:10:45.951Z",
+  "__export_source": "insomnia.desktop.app:v2023.1.0",
+  "resources": [
+    {
+      "_id": "req_9f12590a7dfa44069810cb3d37da35a0",
+      "parentId": "fld_b1ee3ab7d888448fafd5f3af1944ab03",
+      "modified": 1679497838314,
+      "created": 1679447226937,
+      "url": "{{ _.BASE_URL }}/users",
+      "name": "create",
+      "description": "",
+      "method": "POST",
+      "body": {
+        "mimeType": "application/json",
+        "text": "{\n\t\"name\": 0,\n\t\"email\": 0,\n\t\"password\": 0\n}"
+      },
+      "parameters": [],
+      "headers": [{ "name": "Content-Type", "value": "application/json" }],
+      "authentication": {},
+      "metaSortKey": -1679447265212.3125,
+      "isPrivate": false,
+      "settingStoreCookies": true,
+      "settingSendCookies": true,
+      "settingDisableRenderRequestBody": false,
+      "settingEncodeUrl": true,
+      "settingRebuildPath": true,
+      "settingFollowRedirects": "global",
+      "_type": "request"
+    },
+    {
+      "_id": "fld_b1ee3ab7d888448fafd5f3af1944ab03",
+      "parentId": "wrk_3df8d5d2d01a44e1a871355abca17fd8",
+      "modified": 1679447266447,
+      "created": 1679447266447,
+      "name": "Users",
+      "description": "",
+      "environment": {},
+      "environmentPropertyOrder": null,
+      "metaSortKey": -1679447266447,
+      "_type": "request_group"
+    },
+    {
+      "_id": "wrk_3df8d5d2d01a44e1a871355abca17fd8",
+      "parentId": null,
+      "modified": 1679447215707,
+      "created": 1679447215707,
+      "name": "foodExplorer",
+      "description": "",
+      "scope": "collection",
+      "_type": "workspace"
+    },
+    {
+      "_id": "env_0c23bc764a815148630f079fd170c8a7e8a13ebe",
+      "parentId": "wrk_3df8d5d2d01a44e1a871355abca17fd8",
+      "modified": 1679447215711,
+      "created": 1679447215711,
+      "name": "Base Environment",
+      "data": {},
+      "dataPropertyOrder": null,
+      "color": null,
+      "isPrivate": false,
+      "metaSortKey": 1679447215711,
+      "_type": "environment"
+    },
+    {
+      "_id": "jar_0c23bc764a815148630f079fd170c8a7e8a13ebe",
+      "parentId": "wrk_3df8d5d2d01a44e1a871355abca17fd8",
+      "modified": 1679447215712,
+      "created": 1679447215712,
+      "name": "Default Jar",
+      "cookies": [],
+      "_type": "cookie_jar"
+    },
+    {
+      "_id": "spc_c8f6661278534899bab8c34f6886f6b9",
+      "parentId": "wrk_3df8d5d2d01a44e1a871355abca17fd8",
+      "modified": 1679447215708,
+      "created": 1679447215708,
+      "fileName": "foodExplorer",
+      "contents": "",
+      "contentType": "yaml",
+      "_type": "api_spec"
+    },
+    {
+      "_id": "env_1205951b1c9649cc9d24549655bf9d06",
+      "parentId": "env_0c23bc764a815148630f079fd170c8a7e8a13ebe",
+      "modified": 1679448873689,
+      "created": 1679448814521,
+      "name": "Dev",
+      "data": { "BASE_URL": "http://localhost:3333" },
+      "dataPropertyOrder": { "&": ["BASE_URL"] },
+      "color": "#7d69cb",
+      "isPrivate": false,
+      "metaSortKey": 1679448814521,
+      "_type": "environment"
+    }
+  ]
+}
