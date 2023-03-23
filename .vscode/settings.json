@@ -16,6 +16,8 @@
   "editor.formatOnSaveMode": "modificationsIfAvailable",
   "editor.defaultFormatter": "esbenp.prettier-vscode",
 
+  "javascript.suggestionActions.enabled": false,
+
   "prettier.endOfLine": "lf",
   "prettier.jsxSingleQuote": false,
   "prettier.quoteProps": "as-needed",
