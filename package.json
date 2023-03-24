@@ -6,7 +6,9 @@
   "main": "./src/server.js",
   "scripts": {
     "start": "node ./src/server.js",
-    "dev": "nodemon ./src/server.js"
+    "dev": "nodemon ./src/server.js",
+    "migrate": "npx knex migrate:latest",
+    "seed": "npx knex seed:run"
   },
   "author": "Dam450 <dam450@gmail.com>",
   "license": "MIT",
