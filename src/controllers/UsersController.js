@@ -21,6 +21,10 @@ class UsersController {
 
     response.status(201).json({ userId: newUser });
   }
+
+  async update(request, response) {
+    response.json({ Updated: true, ...request.body });
+  }
 }
 
 module.exports = UsersController;
