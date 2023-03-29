@@ -6,7 +6,7 @@ exports.up = knex =>
   knex.schema.createTable('users', table => {
     table.increments('id');
     table.text('name').notNullable();
-    table.specificType('email', 'text not null collate nocase');
+    table.specificType('email', 'text collate nocase').unique().notNullable();
     table.text('password').notNullable();
     table.text('avatar');
     table.boolean('admin').defaultTo(false);
