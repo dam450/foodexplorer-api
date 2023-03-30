@@ -1,1 +1,4 @@
 foodexplorer
+knexfile
+nocase
+Roboto
