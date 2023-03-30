@@ -20,11 +20,52 @@ class UsersController {
     const hashedPassword = await hash(password, salt);
     const [newUser] = await knex('users').insert({ name, email, password: hashedPassword });
 
-    response.status(201).json({ userId: newUser });
+    return response.status(201).json({ id: newUser });
   }
 
   async update(request, response) {
-    response.json({ Updated: true, ...request.body });
+    const { id, name, email, password, newPassword } = request.body;
+
+    const user = await knex('users').where({ id }).first();
+    if (!user) throw new AppError('Usuário não encontrado!', 404);
+
+    const userNewData = {};
+
+    if (name) userNewData.name = name;
+
+    if (email) {
+      if (!isEmailValid(email)) throw new AppError('E-mail inválido!');
+
+      const emailAlreadyExists = await knex('users')
+        .select(['id', 'email'])
+        .where({ email })
+        .first();
+
+      if (emailAlreadyExists && emailAlreadyExists.id !== user.id)
+        throw new AppError('E-mail já em uso!');
+
+      userNewData.email = email;
+    }
+
+    if (newPassword) {
+      if (!password) throw new AppError('Informe a senha atual para cadastrar uma nova!', 404);
+
+      const isPasswordValid = await compare(password, user.password);
+      if (!isPasswordValid) throw new AppError('Senha incorreta!', 401);
+
+      const salt = await genSalt(10);
+      const hashedPassword = await hash(newPassword, salt);
+
+      userNewData.password = hashedPassword;
+    }
+
+    const updated = await knex('users')
+      .where({ id })
+      .update({ ...userNewData });
+
+    if (!updated) throw new AppError('Ocorreu uma falha ao atualizar!');
+
+    return response.json();
   }
 }
 
