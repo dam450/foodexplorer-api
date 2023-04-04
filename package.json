@@ -30,5 +30,16 @@
   },
   "devDependencies": {
     "nodemon": "^2.0.21"
+  },
+  "prettier": {
+    "trailingComma": "es5",
+    "tabWidth": 2,
+    "useTabs": false,
+    "semi": true,
+    "singleQuote": true,
+    "jsxSingleQuote": false,
+    "arrowParens": "always",
+    "endOfLine": "lf",
+    "printWidth": 125
   }
 }
