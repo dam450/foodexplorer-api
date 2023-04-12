@@ -20,7 +20,9 @@ class SessionsController {
     const { expiresIn, secret } = jwtConfig.jwt;
     const token = sign({}, secret, { subject: String(user.id), expiresIn });
 
-    res.status(201).json({ token, user });
+    delete user.password;
+
+    return res.status(201).json({ token, user });
   }
 }
 
