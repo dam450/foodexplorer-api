@@ -13,6 +13,8 @@ class UsersController {
 
     if (!isEmailValid(email)) throw new AppError('E-mail inválido!', 401);
 
+    if (password.length < 6) throw new AppError('Senha muito curta! Informe pelo menos 6 caracteres.', 401);
+
     const userExists = await knex('users').select('email').where({ email }).first();
     if (userExists) throw new AppError('E-mail já cadastrado!', 401);
 
