@@ -14,9 +14,9 @@
   "editor.formatOnPaste": true,
   "editor.formatOnType": true,
   "editor.formatOnSaveMode": "modificationsIfAvailable",
-  "editor.defaultFormatter": "esbenp.prettier-vscode",
+  "editor.defaultFormatter": null,
 
-  "javascript.suggestionActions.enabled": false,
+  "javascript.suggestionActions.enabled": true,
 
   "prettier.endOfLine": "lf",
   "prettier.jsxSingleQuote": false,
@@ -25,5 +25,9 @@
   "prettier.semi": true,
   "prettier.trailingComma": "es5",
   "prettier.printWidth": 100,
-  "files.eol": "\n"
+  "files.eol": "\n",
+  "javascript.format.semicolons": "insert",
+  "[javascript]": {
+    "editor.defaultFormatter": "vscode.typescript-language-features"
+  }
 }
