@@ -62,16 +62,6 @@ class DishesController {
 
     return response.json(dishList);
   }
-
-  async patch(request, response) {
-    const { id } = request.params;
-
-    const dish = await knex('dishes').where({ id }).first();
-    if (!dish) throw new AppError('Prato não encontrado', 404);
-
-    //TODO: make dish image patch
-    return response.json({ dish });
-  }
 }
 
 module.exports = DishesController;
