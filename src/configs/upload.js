@@ -15,3 +15,9 @@ const MULTER = {
     },
   }),
 };
+
+module.exports = {
+  TMP_FOLDER,
+  UPLOAD_FOLDER,
+  MULTER
+};
