@@ -9,13 +9,13 @@ exports.seed = async function (knex) {
     {
       name: 'John Doe',
       email: 'john@email.com',
-      password: '$2a$08$H8fFI3qparBlFK44JxuGz.k/HEdngmYNRePYZJNgOiIM/3pNuNkKS',
+      password: '$2a$10$q2u7xgVso1sHzfe4mBdKeu495O17Z307AXgaA9Ou.fBPeBZhGQEBO',
       admin: false,
     },
     {
       name: 'Jane Doe',
       email: 'jane@email.com',
-      password: '$2a$08$qxjzyetA.ZNEcKDGz4ChpexlWcNICjfkWrf.3f89YXqzp.Mx4E0zi',
+      password: '$2a$10$q2u7xgVso1sHzfe4mBdKeu495O17Z307AXgaA9Ou.fBPeBZhGQEBO',
       admin: true,
     },
   ]);
