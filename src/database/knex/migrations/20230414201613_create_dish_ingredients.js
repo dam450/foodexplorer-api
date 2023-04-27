@@ -7,7 +7,6 @@ exports.up = knex =>
     table.increments('id');
     table.integer('dish_id').notNullable().references('id').inTable('dishes').onDelete('CASCADE');
     table.text('name').notNullable();
-    table.string('name').notNullable();
   });
 
 /**
