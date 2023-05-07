@@ -1,13 +1,255 @@
 {
   "_type": "export",
   "__export_format": 4,
-  "__export_date": "2023-03-30T19:42:27.931Z",
-  "__export_source": "insomnia.desktop.app:v2023.1.0",
+  "__export_date": "2023-05-06T01:56:32.076Z",
+  "__export_source": "insomnia.desktop.app:v2023.2.0",
   "resources": [
+    {
+      "_id": "req_6292881391294a75b492c5aec406e2fb",
+      "parentId": "fld_0fdf0ee73cb54a61817ffa3f4e241661",
+      "modified": 1682565371050,
+      "created": 1682480480571,
+      "url": "{{ _.BASE_URL }}/{{ _.RESOURCE }}/{{ _.PICTURE }}",
+      "name": "picture",
+      "description": "",
+      "method": "GET",
+      "body": {},
+      "parameters": [],
+      "headers": [],
+      "authentication": {
+        "type": "bearer",
+        "token": "{{ _.USER_TOKEN }}",
+        "disabled": true
+      },
+      "metaSortKey": -1680271232375.9062,
+      "isPrivate": false,
+      "settingStoreCookies": true,
+      "settingSendCookies": true,
+      "settingDisableRenderRequestBody": false,
+      "settingEncodeUrl": true,
+      "settingRebuildPath": true,
+      "settingFollowRedirects": "global",
+      "_type": "request"
+    },
+    {
+      "_id": "fld_0fdf0ee73cb54a61817ffa3f4e241661",
+      "parentId": "wrk_3df8d5d2d01a44e1a871355abca17fd8",
+      "modified": 1682480703164,
+      "created": 1682480452741,
+      "name": "Files",
+      "description": "",
+      "environment": {
+        "RESOURCE": "files",
+        "PICTURE": "{% response 'body', 'req_332e3f4b29c84c50a8f0370aabc05e68', 'b64::JC5waWN0dXJl::46b', 'never', 60 %}"
+      },
+      "environmentPropertyOrder": {
+        "&": [
+          "RESOURCE",
+          "PICTURE"
+        ]
+      },
+      "metaSortKey": -1682480452741,
+      "_type": "request_group"
+    },
+    {
+      "_id": "wrk_3df8d5d2d01a44e1a871355abca17fd8",
+      "parentId": null,
+      "modified": 1679447215707,
+      "created": 1679447215707,
+      "name": "foodExplorer",
+      "description": "",
+      "scope": "collection",
+      "_type": "workspace"
+    },
+    {
+      "_id": "req_0ac85b2a87124ed2a74d7944873dd839",
+      "parentId": "fld_48e42b44847b4027938429b975d17170",
+      "modified": 1683336364595,
+      "created": 1680638539317,
+      "url": "{{ _.BASE_URL }}/{{ _.RESOURCE }}",
+      "name": "create",
+      "description": "",
+      "method": "POST",
+      "body": {
+        "mimeType": "application/json",
+        "text": "{\n\t\"name\": \"Salada Ravanello\",\n\t\"description\": \"Rabanetes, folhas verdes e molho agridoce salpicados com gergelim.\",\n\t\"price\": 25.00,\n\t\"picture\": null,\n\t\"category_id\": 2,\n\t\"ingredients\": [\n\t\t\"alface\",\n\t\t\"cebola\",\n\t\t\"pão naan\",\n\t\t\"pepino\",\n\t\t\"rabanete\",\n\t\t\"tomate\"\n\t]\n}"
+      },
+      "parameters": [],
+      "headers": [
+        {
+          "name": "Content-Type",
+          "value": "application/json"
+        }
+      ],
+      "authentication": {
+        "type": "bearer",
+        "token": "{{ _.USER_TOKEN }}"
+      },
+      "metaSortKey": -1680638539317,
+      "isPrivate": false,
+      "settingStoreCookies": true,
+      "settingSendCookies": true,
+      "settingDisableRenderRequestBody": false,
+      "settingEncodeUrl": true,
+      "settingRebuildPath": true,
+      "settingFollowRedirects": "global",
+      "_type": "request"
+    },
+    {
+      "_id": "fld_48e42b44847b4027938429b975d17170",
+      "parentId": "wrk_3df8d5d2d01a44e1a871355abca17fd8",
+      "modified": 1680638605119,
+      "created": 1680638458697,
+      "name": "Dishes",
+      "description": "",
+      "environment": {
+        "RESOURCE": "dishes"
+      },
+      "environmentPropertyOrder": {
+        "&": [
+          "RESOURCE"
+        ]
+      },
+      "metaSortKey": -1680638458697,
+      "_type": "request_group"
+    },
+    {
+      "_id": "req_2804b88e1ea04599af0e0c84c9ff80c2",
+      "parentId": "fld_48e42b44847b4027938429b975d17170",
+      "modified": 1683335771442,
+      "created": 1681764137211,
+      "url": "{{ _.BASE_URL }}/{{ _.RESOURCE }}/9",
+      "name": "update",
+      "description": "",
+      "method": "PUT",
+      "body": {
+        "mimeType": "application/json",
+        "text": "{\n\t\"name\": \"001 Salada Ravanello\",\n\t\"description\": \"Rabanetes, folhas verdes e molho agridoce salpicados com gergelim.\",\n\t\"price\": 19.05,\n\t\"picture\": null,\n\t\"category_id\": 3,\n\t\"ingredients\": [\n\t\t\"rabanete\",\n\t\t\"alface\",\n\t\t\"gergelim\"\n\t]\n}"
+      },
+      "parameters": [],
+      "headers": [
+        {
+          "name": "Content-Type",
+          "value": "application/json"
+        }
+      ],
+      "authentication": {
+        "type": "bearer",
+        "token": "{{ _.USER_TOKEN }}",
+        "disabled": false
+      },
+      "metaSortKey": -1680420875944.5,
+      "isPrivate": false,
+      "settingStoreCookies": true,
+      "settingSendCookies": true,
+      "settingDisableRenderRequestBody": false,
+      "settingEncodeUrl": true,
+      "settingRebuildPath": true,
+      "settingFollowRedirects": "global",
+      "_type": "request"
+    },
+    {
+      "_id": "req_e78189cd6ced46629b3629a4d952fc0e",
+      "parentId": "fld_48e42b44847b4027938429b975d17170",
+      "modified": 1683336306140,
+      "created": 1681775072662,
+      "url": "{{ _.BASE_URL }}/{{ _.RESOURCE }}/9",
+      "name": "show",
+      "description": "",
+      "method": "GET",
+      "body": {},
+      "parameters": [],
+      "headers": [],
+      "authentication": {
+        "type": "bearer",
+        "token": "{{ _.USER_TOKEN }}",
+        "disabled": false
+      },
+      "metaSortKey": -1680312044258.25,
+      "isPrivate": false,
+      "settingStoreCookies": true,
+      "settingSendCookies": true,
+      "settingDisableRenderRequestBody": false,
+      "settingEncodeUrl": true,
+      "settingRebuildPath": true,
+      "settingFollowRedirects": "global",
+      "_type": "request"
+    },
+    {
+      "_id": "req_48954c2a51fc4de695669a61222df3d6",
+      "parentId": "fld_48e42b44847b4027938429b975d17170",
+      "modified": 1681775554445,
+      "created": 1681775257661,
+      "url": "{{ _.BASE_URL }}/{{ _.RESOURCE }}",
+      "name": "index",
+      "description": "",
+      "method": "GET",
+      "body": {},
+      "parameters": [],
+      "headers": [],
+      "authentication": {
+        "type": "bearer",
+        "token": "{{ _.USER_TOKEN }}",
+        "disabled": false
+      },
+      "metaSortKey": -1680284836336.6875,
+      "isPrivate": false,
+      "settingStoreCookies": true,
+      "settingSendCookies": true,
+      "settingDisableRenderRequestBody": false,
+      "settingEncodeUrl": true,
+      "settingRebuildPath": true,
+      "settingFollowRedirects": "global",
+      "_type": "request"
+    },
+    {
+      "_id": "req_332e3f4b29c84c50a8f0370aabc05e68",
+      "parentId": "fld_48e42b44847b4027938429b975d17170",
+      "modified": 1683335787169,
+      "created": 1681775216556,
+      "url": "{{ _.BASE_URL }}/{{ _.RESOURCE }}/9/picture",
+      "name": "picture",
+      "description": "",
+      "method": "PATCH",
+      "body": {
+        "mimeType": "multipart/form-data",
+        "params": [
+          {
+            "id": "pair_7937a6645b964fffb689d9925d87a33b",
+            "name": "picture",
+            "value": "",
+            "description": "",
+            "type": "file",
+            "fileName": "E:\\rocketseat\\explorer\\foodexplorer\\frontend\\src\\assets\\salada.png"
+          }
+        ]
+      },
+      "parameters": [],
+      "headers": [
+        {
+          "name": "Content-Type",
+          "value": "multipart/form-data"
+        }
+      ],
+      "authentication": {
+        "type": "bearer",
+        "token": "{{ _.USER_TOKEN }}",
+        "disabled": false
+      },
+      "metaSortKey": -1680257628415.125,
+      "isPrivate": false,
+      "settingStoreCookies": true,
+      "settingSendCookies": true,
+      "settingDisableRenderRequestBody": false,
+      "settingEncodeUrl": true,
+      "settingRebuildPath": true,
+      "settingFollowRedirects": "global",
+      "_type": "request"
+    },
     {
       "_id": "req_e5e3924ec4cc40acabd0180cb3b01025",
       "parentId": "fld_2822580a6b114d4398c957e16060c9eb",
-      "modified": 1680203364335,
+      "modified": 1681763774997,
       "created": 1680203212572,
       "url": "{{ _.BASE_URL }}/{{ _.RESOURCE }}",
       "name": "create",
@@ -15,7 +257,7 @@
       "method": "POST",
       "body": {
         "mimeType": "application/json",
-        "text": "{\n\t\"email\": \"usuario@email.com\",\n\t\"password\": \"1234\"\n}"
+        "text": "{\n\t\"email\": \"john@email.com\",\n\t\"password\": \"123456\"\n}"
       },
       "parameters": [],
       "headers": [
@@ -54,19 +296,9 @@
       "_type": "request_group"
     },
     {
-      "_id": "wrk_3df8d5d2d01a44e1a871355abca17fd8",
-      "parentId": null,
-      "modified": 1679447215707,
-      "created": 1679447215707,
-      "name": "foodExplorer",
-      "description": "",
-      "scope": "collection",
-      "_type": "workspace"
-    },
-    {
       "_id": "req_9f12590a7dfa44069810cb3d37da35a0",
       "parentId": "fld_b1ee3ab7d888448fafd5f3af1944ab03",
-      "modified": 1679755857843,
+      "modified": 1681832998985,
       "created": 1679447226937,
       "url": "{{ _.BASE_URL }}/{{ _.RESOURCE }}",
       "name": "create",
@@ -74,7 +306,7 @@
       "method": "POST",
       "body": {
         "mimeType": "application/json",
-        "text": "{\n\t\"name\": \"Jonny\",\n\t\"email\": \"Johny7@email.com\",\n\t\"password\": \"1234\"\n}"
+        "text": "{\n\t\"name\": \"Jonny\",\n\t\"email\": \"john@email.com\",\n\t\"password\": \"123456\"\n}"
       },
       "parameters": [],
       "headers": [
@@ -97,7 +329,7 @@
     {
       "_id": "fld_b1ee3ab7d888448fafd5f3af1944ab03",
       "parentId": "wrk_3df8d5d2d01a44e1a871355abca17fd8",
-      "modified": 1680203342988,
+      "modified": 1680638593323,
       "created": 1679447266447,
       "name": "Users",
       "description": "",
@@ -115,7 +347,7 @@
     {
       "_id": "req_ba9d88a44d614e5bbd073f37114d6e49",
       "parentId": "fld_b1ee3ab7d888448fafd5f3af1944ab03",
-      "modified": 1680139287086,
+      "modified": 1681789575562,
       "created": 1679756492273,
       "url": "{{ _.BASE_URL }}/{{ _.RESOURCE }}",
       "name": "update",
@@ -123,7 +355,7 @@
       "method": "PUT",
       "body": {
         "mimeType": "application/json",
-        "text": "{\n\t\"id\": 5,\n\t\"name\": \"João\",\n\t\"email\": \"johny7@email.com\",\n\t\"password\": \"12345\",\n\t\"newPassword\": \"12345\"\n}\n\n"
+        "text": "{\n\t\"name\": \"João\",\n\t\"email\": \"john@email.com\",\n\t\"password\": \"123456\",\n\t\"newPassword\": \"123456\"\n}\n"
       },
       "parameters": [],
       "headers": [
@@ -132,7 +364,11 @@
           "value": "application/json"
         }
       ],
-      "authentication": {},
+      "authentication": {
+        "type": "bearer",
+        "token": "{{ _.USER_TOKEN }}",
+        "disabled": false
+      },
       "metaSortKey": -1678626860969.1562,
       "isPrivate": false,
       "settingStoreCookies": true,
@@ -146,11 +382,17 @@
     {
       "_id": "env_0c23bc764a815148630f079fd170c8a7e8a13ebe",
       "parentId": "wrk_3df8d5d2d01a44e1a871355abca17fd8",
-      "modified": 1679447215711,
+      "modified": 1680216843547,
       "created": 1679447215711,
       "name": "Base Environment",
-      "data": {},
-      "dataPropertyOrder": null,
+      "data": {
+        "USER_TOKEN": "{% response 'body', 'req_e5e3924ec4cc40acabd0180cb3b01025', 'b64::JC50b2tlbg==::46b', 'always', 60 %}"
+      },
+      "dataPropertyOrder": {
+        "&": [
+          "USER_TOKEN"
+        ]
+      },
       "color": null,
       "isPrivate": false,
       "metaSortKey": 1679447215711,
@@ -159,10 +401,27 @@
     {
       "_id": "jar_0c23bc764a815148630f079fd170c8a7e8a13ebe",
       "parentId": "wrk_3df8d5d2d01a44e1a871355abca17fd8",
-      "modified": 1679447215712,
+      "modified": 1682607679278,
       "created": 1679447215712,
       "name": "Default Jar",
-      "cookies": [],
+      "cookies": [
+        {
+          "key": "__cf_bm",
+          "value": "6QI3La5q5IQLcreXCIz_9ox9Lh5FVr2jW_iOhk0U1QQ-1682607675-0-ASJA/7qF5KTmmGVec3hxZS2u1TPc5gvV7u12FCMDqvWWJ2/0Q4zRcqm2gfUcXJVmDBKHspzd2p2GEYPziboPElE=",
+          "expires": "2023-04-27T15:31:15.000Z",
+          "domain": "onrender.com",
+          "path": "/",
+          "secure": true,
+          "httpOnly": true,
+          "extensions": [
+            "SameSite=None"
+          ],
+          "hostOnly": false,
+          "creation": "2023-04-27T03:11:47.757Z",
+          "lastAccessed": "2023-04-27T15:01:19.278Z",
+          "id": "27864624969644836"
+        }
+      ],
       "_type": "cookie_jar"
     },
     {
@@ -178,7 +437,7 @@
     {
       "_id": "env_1205951b1c9649cc9d24549655bf9d06",
       "parentId": "env_0c23bc764a815148630f079fd170c8a7e8a13ebe",
-      "modified": 1679755741897,
+      "modified": 1682564890466,
       "created": 1679448814521,
       "name": "Dev",
       "data": {
@@ -193,9 +452,34 @@
           "BASE_URL"
         ]
       },
-      "color": "#7d69cb",
+      "color": "#44ff00",
       "isPrivate": false,
       "metaSortKey": 1679448814521,
+      "_type": "environment"
+    },
+    {
+      "_id": "env_5fbe5d7c9f304eabb1eb8d8c33d0b0f4",
+      "parentId": "env_0c23bc764a815148630f079fd170c8a7e8a13ebe",
+      "modified": 1682565075544,
+      "created": 1682564775631,
+      "name": "Prod (Render)",
+      "data": {
+        "PROTO": "https",
+        "PORT": 0,
+        "HOST": "foodexplorer-api-owmn.onrender.com",
+        "BASE_URL": "{{ _.PROTO }}://{{ _.HOST }}"
+      },
+      "dataPropertyOrder": {
+        "&": [
+          "PROTO",
+          "PORT",
+          "HOST",
+          "BASE_URL"
+        ]
+      },
+      "color": "#ff0000",
+      "isPrivate": false,
+      "metaSortKey": 1680304039706.5,
       "_type": "environment"
     }
   ]
