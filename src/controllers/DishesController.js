@@ -9,12 +9,7 @@ class DishesController {
 
     const [ dishId ] = await knex('dishes').insert(newDish);
 
-    const ingredientList = ingredients.map((item) => {
-      return {
-        dish_id: dishId,
-        name: item,
-      };
-    });
+    const ingredientList = ingredients.map((item) => ({ dish_id: dishId, name: item }));
 
     if (ingredientList.length > 0) await knex('dish_ingredients').insert(ingredientList);
 
@@ -22,15 +17,42 @@ class DishesController {
   }
 
   async update(request, response) {
-    const { name } = request.body;
+    const { name, description, price, category_id, ingredients } = request.body;
     const { id } = request.params;
 
     const dish = await knex('dishes').where({ id }).first();
     if (!dish) throw new AppError('Prato não encontrado', 404);
 
-    dish.name = name ?? dish.name;
-    //TODO: make dish update
-    return response.json({ dish });
+    const updates = {};
+    if (name) {
+      updates.name = name;
+    }
+    if (description) {
+      updates.description = description;
+    }
+    if (price !== undefined) {
+      updates.price = Number(price);
+    }
+    if (category_id !== undefined) {
+      updates.category_id = Number(category_id);
+    }
+
+    try {
+      await knex('dishes').update(updates).where({ id });
+
+      await knex('dish_ingredients').where({ dish_id: id }).delete();
+
+      const hasIngredients = ingredients?.length > 0;
+      if (hasIngredients) {
+        const ingredientList = ingredients.map(item => ({ dish_id: id, name: item }));
+        await knex('dish_ingredients').insert(ingredientList);
+      }
+    } catch (error) {
+      console.log(error);
+      throw new AppError('Erro interno do servidor!', 500);
+    }
+
+    return response.status(204).end();
   }
 
   async show(request, response) {
