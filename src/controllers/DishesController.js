@@ -80,7 +80,8 @@ class DishesController {
 
     const dishList = await knex('dishes as d')
       .join('dish_categories as c', 'c.id', 'd.category_id')
-      .select('d.id', 'd.name', 'd.description', 'd.price', 'd.picture', 'c.name as category');
+      .select('d.id', 'd.name', 'd.description', 'd.price', 'd.picture', 'c.name as category')
+      .orderBy('category');
 
     return response.json(dishList);
   }
