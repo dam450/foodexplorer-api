@@ -21,6 +21,18 @@ class CategoriesController {
 
     return response.status(201).json({ id: categoryId, name });
   }
+
+  async delete(request, response) {
+    const { id } = request.body;
+
+    if (isNaN(id)) throw new AppError('Informe o id da categoria!');
+
+    const hasDeleted = await knex('dish_categories').where({ id }).delete();
+
+    if (hasDeleted) return response.status(200).end();
+
+    throw new AppError('ID não encontrado!');
+  }
 }
 
 module.exports = CategoriesController;
