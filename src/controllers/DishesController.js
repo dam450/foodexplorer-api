@@ -24,6 +24,7 @@ class DishesController {
     if (!dish) throw new AppError('Prato não encontrado', 404);
 
     const updates = {};
+
     if (name) {
       updates.name = name;
     }
@@ -75,9 +76,6 @@ class DishesController {
   }
 
   async index(request, response) {
-    // const { id } = request.params;
-    // const { id: userId } = request.user;
-
     const dishList = await knex('dishes as d')
       .join('dish_categories as c', 'c.id', 'd.category_id')
       .select('d.id', 'd.name', 'd.description', 'd.price', 'd.picture', 'c.name as category')
