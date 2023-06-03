@@ -63,7 +63,7 @@ class DishesController {
 
     const dish = await knex('dishes as d')
       .join('dish_categories as c', 'c.id', 'd.category_id')
-      .select('d.id', 'd.name', 'd.description', 'd.price', 'd.picture', 'c.name as category')
+      .select('d.id', 'd.name', 'd.description', 'd.price', 'd.picture', 'c.id as category_id', 'c.name as category')
       .where('d.id', id)
       .first();
 
