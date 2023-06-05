@@ -25,7 +25,7 @@ class FavoritesController {
     if (favoriteExists) throw new AppError('Prato já foi favoritado!');
 
     const dish = await knex('dishes').select('name').where({ id: dish_id }).first();
-    console.log('favdish:', dish);
+
     if (!dish) throw new AppError('Prato inexistente!');
 
     const [ favorited ] = await knex('favorites_dishes').insert({ dish_id, user_id });
