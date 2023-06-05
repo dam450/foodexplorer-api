@@ -16,6 +16,16 @@ class DishesController {
     return response.status(201).json({ id: dishId });
   }
 
+  async remove(request, response) {
+    const { id } = request.params;
+
+    const hasDeleted = await knex('dishes').where({ id }).delete();
+
+    if (hasDeleted) return response.json(200).end();
+
+    throw new AppError('Prato não encontrado.', 404);
+  }
+
   async update(request, response) {
     const { name, description, price, category_id, ingredients } = request.body;
     const { id } = request.params;
