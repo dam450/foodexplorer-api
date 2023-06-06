@@ -16,6 +16,16 @@ class DishesController {
     return response.status(201).json({ id: dishId });
   }
 
+  async remove(request, response) {
+    const { id } = request.params;
+
+    const hasDeleted = await knex('dishes').where({ id }).delete();
+
+    if (hasDeleted) return response.json(200).end();
+
+    throw new AppError('Prato não encontrado.', 404);
+  }
+
   async update(request, response) {
     const { name, description, price, category_id, ingredients } = request.body;
     const { id } = request.params;
@@ -63,7 +73,7 @@ class DishesController {
 
     const dish = await knex('dishes as d')
       .join('dish_categories as c', 'c.id', 'd.category_id')
-      .select('d.id', 'd.name', 'd.description', 'd.price', 'd.picture', 'c.name as category')
+      .select('d.id', 'd.name', 'd.description', 'd.price', 'd.picture', 'c.id as category_id', 'c.name as category')
       .where('d.id', id)
       .first();
 
@@ -76,12 +86,40 @@ class DishesController {
   }
 
   async index(request, response) {
+    const { id: user_id } = request.user;
+
+    const favorites = await knex('favorites_dishes')
+      .select('dish_id')
+      .where({ user_id });
+
+    const favoritesIDs = favorites.map((favorite) => favorite.dish_id);
+
     const dishList = await knex('dishes as d')
       .join('dish_categories as c', 'c.id', 'd.category_id')
-      .select('d.id', 'd.name', 'd.description', 'd.price', 'd.picture', 'c.name as category')
+      .select(
+        'd.id',
+        'd.name',
+        'd.description',
+        'd.price',
+        'd.picture',
+        'c.id as categoryId',
+        'c.name as category')
       .orderBy('category');
 
-    return response.json(dishList);
+    const userDishList = dishList.map((dish) => {
+      let dishData = {};
+
+      if (favoritesIDs.includes(dish.id)) {
+        dishData = Object.assign({}, dish, { isFavorite: true });
+      } else {
+        dishData = Object.assign({}, dish, { isFavorite: false });
+      }
+
+      return dishData;
+    });
+
+
+    return response.json(userDishList);
   }
 }
 
