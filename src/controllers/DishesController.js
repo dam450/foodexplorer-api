@@ -44,7 +44,7 @@ class DishesController {
     if (price !== undefined) {
       updates.price = Number(price);
     }
-    if (category_id !== undefined) {
+    if (category_id !== 'undefined') {
       updates.category_id = Number(category_id);
     }
 
@@ -86,25 +86,54 @@ class DishesController {
   }
 
   async index(request, response) {
+
     const { id: user_id } = request.user;
+    const { search } = request.query;
+
+    const query = (typeof search === 'string' && search === 'undefined') ? null : search;
 
     const favorites = await knex('favorites_dishes')
       .select('dish_id')
       .where({ user_id });
-
     const favoritesIDs = favorites.map((favorite) => favorite.dish_id);
 
-    const dishList = await knex('dishes as d')
-      .join('dish_categories as c', 'c.id', 'd.category_id')
-      .select(
-        'd.id',
-        'd.name',
-        'd.description',
-        'd.price',
-        'd.picture',
-        'c.id as categoryId',
-        'c.name as category')
-      .orderBy('category');
+    let dishList;
+
+    if (query) {
+      const ingredients = await knex('dish_ingredients')
+        .select('dish_id')
+        .whereLike('name', `%${query}%`)
+        .groupBy('dish_id');
+
+      const dishesByIngredient = ingredients.map((i) => i.dish_id);
+
+      dishList = await knex('dishes as d')
+        .join('dish_categories as c', 'c.id', 'd.category_id')
+        .select(
+          'd.id',
+          'd.name',
+          'd.description',
+          'd.price',
+          'd.picture',
+          'c.id as categoryId',
+          'c.name as category')
+        .whereLike('d.name', `%${query}%`)
+        .orWhereIn('d.id', dishesByIngredient)
+        .groupBy('d.id')
+        .orderBy('category');
+    } else {
+      dishList = await knex('dishes as d')
+        .join('dish_categories as c', 'c.id', 'd.category_id')
+        .select(
+          'd.id',
+          'd.name',
+          'd.description',
+          'd.price',
+          'd.picture',
+          'c.id as categoryId',
+          'c.name as category')
+        .orderBy('category');
+    }
 
     const userDishList = dishList.map((dish) => {
       let dishData = {};
@@ -117,7 +146,6 @@ class DishesController {
 
       return dishData;
     });
-
 
     return response.json(userDishList);
   }
