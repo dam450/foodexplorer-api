@@ -6,13 +6,12 @@
 
 <p align="center">
   <a href="#memo-licença">
-    <img alt="License" src="https://img.shields.io/static/v1?style=flat&label=license&message=MIT&color=49AA26&labelColor=000000">
+    <img alt="License" src="https://img.shields.io/static/v1?style=flat&label=license&message=MIT&color=49AA26">
   </a> 
   <a href="#-deploy">
-    <img alt="Render.com" src="https://img.shields.io/static/v1?style=flat&logo=render&label=render&message=deploy&color=4AF2C3">
+    <img alt="render.com" src="https://img.shields.io/website?down_color=lightgrey&down_message=deploy&label=render&logo=render&logoColor=4AF2C3&style=flat&up_color=4AF2C3&up_message=online&url=https%3A%2F%2Ffoodexplorer-api-owmn.onrender.com%2F">
   </a> 
 </p>
-
 
 <p align="center">
 Backend do projeto Food Explorer</p>
