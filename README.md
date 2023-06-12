@@ -110,13 +110,11 @@ Este é o backend do projeto **Food Explorer**, criado como parte do desafio fin
 ### Configuração Insomnia
 
 <p>
-Faça o download do arquivo de <a href="./docs/Insomnia_config.json" download > configuração do Insomnia</a> ou importe no botão abaixo.
+Faça o download do arquivo de <a href="https://raw.githubusercontent.com/dam450/foodexplorer-api/readme/docs/Insomnia_config.json" download > configuração do Insomnia</a> ou importe no botão abaixo.
 </p>
 
 <p align="center">
-  <a href="https://insomnia.rest/run?label=foodexplorer&uri=https%3A%2F%2Fgithub.com%2Fdam450%2Ffoodexplorer-api%2Fblob%2Fmain%2Fdocs%2FInsomnia_config.json">
-    <img alt="Insomnia" src="https://insomnia.rest/images/run.svg">
-  </a> 
+<a href="https://insomnia.rest/run/?label=Foodexplorer%20API&uri=https%3A%2F%2Fraw.githubusercontent.com%2Fdam450%2Ffoodexplorer-api%2Fmain%2Fdocs%2FInsomnia_config.json" target="_blank"><img src="https://insomnia.rest/images/run.svg" alt="Run in Insomnia"></a>
 </p>
 
 <!-- [![Run in Insomnia}](https://insomnia.rest/images/run.svg)](https://insomnia.rest/run?label=foodexplorer&uri=https%3A%2F%2Fgithub.com%2Fdam450%2Ffoodexplorer-api%2Fblob%2Fmain%2Fdocs%2FInsomnia_config.json) -->
