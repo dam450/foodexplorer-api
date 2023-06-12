@@ -23,7 +23,7 @@ class CategoriesController {
   }
 
   async delete(request, response) {
-    const { id } = request.body;
+    const { id } = request.params;
 
     if (isNaN(id)) throw new AppError('Informe o id da categoria!');
 
