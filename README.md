@@ -21,7 +21,9 @@ Backend do projeto Food Explorer</p>
   <a href="#-deploy">Deploy</a>&nbsp;&nbsp;&nbsp;|&nbsp;&nbsp;&nbsp;
   <a href="#%EF%B8%8F-frontend">Frontend</a>&nbsp;&nbsp;&nbsp;|&nbsp;&nbsp;&nbsp;
   <a href="#-tecnologias">Tecnologias</a>&nbsp;&nbsp;&nbsp;|&nbsp;&nbsp;&nbsp;
-  <a href="#-projeto">Projeto</a>
+  <a href="#-projeto">Projeto</a>&nbsp;&nbsp;&nbsp;|&nbsp;&nbsp;&nbsp;
+  <a href="#-documenta%C3%A7%C3%A3o-da-api">Documentação</a>
+  
 <!--   <a href="#-layout">Layout</a>&nbsp;&nbsp;&nbsp;|&nbsp;&nbsp;&nbsp; -->
 <!--   <a href="#memo-licença">Licença</a> -->
 
@@ -102,6 +104,22 @@ Esse projeto foi desenvolvido com as seguintes tecnologias:
 ## 💻 Projeto
 
 Este é o backend do projeto **Food Explorer**, criado como parte do desafio final do treinamento fullstack **Explorer** da [@Rockeseat](https://www.rocketseat.com.br/) para avaliar os conhecimentos adquiridos.
+
+## 📑 Documentação da API
+
+### Configuração Insomnia
+
+<p>
+Faça o download do arquivo de <a href="./docs/Insomnia_config.json" download > configuração do Insomnia</a> ou importe no botão abaixo.
+</p>
+
+<p align="center">
+  <a href="https://insomnia.rest/run?label=foodexplorer&uri=https%3A%2F%2Fgithub.com%2Fdam450%2Ffoodexplorer-api%2Fblob%2Fmain%2Fdocs%2FInsomnia_config.json">
+    <img alt="Insomnia" src="https://insomnia.rest/images/run.svg">
+  </a> 
+</p>
+
+<!-- [![Run in Insomnia}](https://insomnia.rest/images/run.svg)](https://insomnia.rest/run?label=foodexplorer&uri=https%3A%2F%2Fgithub.com%2Fdam450%2Ffoodexplorer-api%2Fblob%2Fmain%2Fdocs%2FInsomnia_config.json) -->
 
 ## :memo: Licença
 
