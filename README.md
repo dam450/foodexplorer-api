@@ -83,7 +83,7 @@ npm start
 ## 🖼️ Frontend
 
 O frontend desta aplicação encontra-se no repositório: 
-- [https://github.com/dam450/foodexplorer](Github.com/dam450/foodexplorer)
+- [https://github.com/dam450/foodexplorer](https://github.com/dam450/foodexplorer)
 
 ## 🦾 Tecnologias
 
