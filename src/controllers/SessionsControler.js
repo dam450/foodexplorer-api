@@ -12,10 +12,10 @@ class SessionsController {
     if (!email || !password) throw new AppError('E-mail e senha são obrigatórios!', 401);
 
     const user = await knex('users').select('*').where({ email }).first();
-    if (!user) throw new AppError('Usuário não encontrado!', 404);
+    if (!user) throw new AppError('E-mail e/ou senha inválidos!', 404);
 
     const isPasswordValid = await compare(password, user.password);
-    if (!isPasswordValid) throw new AppError('Senha incorreta!', 401);
+    if (!isPasswordValid) throw new AppError('E-mail e/ou senha inválidos!', 401);
 
     const { expiresIn, secret } = jwtConfig.jwt;
     const token = sign({}, secret, { subject: String(user.id), expiresIn });
