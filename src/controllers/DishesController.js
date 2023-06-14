@@ -21,7 +21,7 @@ class DishesController {
 
     const hasDeleted = await knex('dishes').where({ id }).delete();
 
-    if (hasDeleted) return response.json(200).end();
+    if (hasDeleted) return response.status(200).end();
 
     throw new AppError('Prato não encontrado.', 404);
   }

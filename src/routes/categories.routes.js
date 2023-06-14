@@ -11,6 +11,6 @@ categoriesRoutes.use(ensureAuthenticated);
 
 categoriesRoutes.get('/', categoriesController.index);
 categoriesRoutes.post('/', ensureAdmin, categoriesController.create);
-categoriesRoutes.delete('/', ensureAdmin, categoriesController.delete);
+categoriesRoutes.delete('/:id', ensureAdmin, categoriesController.delete);
 
 module.exports = categoriesRoutes;
